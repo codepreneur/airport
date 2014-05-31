@@ -7,18 +7,35 @@ require 'airport'
 #
 # If the airport is full then no planes can land
 describe Airport do
-  let(:airport) { Airport.new }
+  let(:airport) { Airport.new(:capacity => 50) }
+
+  it 'allows setting default capacity upon initialising' do
+    expect(airport.capacity).to eq 50
+  end
   
   context 'taking off and landing' do
-    xit 'a plane can land' do
+    it 'a plane can land' do
+      airport.land_a(:plane)
+      expect(airport.terminal).not_to be_empty
     end
     
-    xit 'a plane can take off' do
+    it 'a plane can take off' do
+      airport.land_a(:plane)
+      airport.release_a(:plane)
+      expect(airport.terminal).to be_empty
+
     end
   end
   
   context 'traffic control' do
-    xit 'a plane cannot land if the airport is full' do
+    it 'a plane cannot land if the airport is full' do
+      50.times {airport.land_a(:plane)}
+      expect{airport.land_a(:plane)}.to raise_error RuntimeError
+    end
+
+    it 'airport can be full' do
+      50.times {airport.land_a(:plane)}
+      expect(airport).to be_full
     end
     
     # Include a weather condition using a module.

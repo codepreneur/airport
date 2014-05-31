@@ -8,12 +8,12 @@ class Plane
 		@status
 	end
 
-	def take_off
+	def take_off!
 		@status = 'flying'
 		self
 	end
 
-	def land
+	def land!
 		@status = 'landed'
 		self
 	end
