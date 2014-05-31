@@ -19,11 +19,13 @@ class Airport
 	end	
 	
 	def land_a(plane)
-		raise 'This airport is full, wait in the air space' if full?
+		return 'its stormy! can only land when its sunny!' if check == 'stormy'
+		return 'its full, wait in the air space queue!' if full?
 		terminal << plane
 	end
 
 	def release_a(plane)
+		return 'its stormy! can only fly when its sunny!' if check == 'stormy'
 		terminal.delete(plane)
 	end
 
