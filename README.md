@@ -26,13 +26,14 @@ Easiest way is to `require './lib/init'` inside of `irb` which will provide you 
 @controller
 ```
 
-and then
+and then `@controller.add_plane_to(airport,plane)`
 
 ```
 @controller.add_plane_to(@luton,@plane1)
 ```
 
 to add freshly manufactured plane to airport of your choice.
+
 If you want to send planes to different airports, just use:
 
 ```
