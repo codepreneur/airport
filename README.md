@@ -12,9 +12,9 @@ One thing I still need to figure out is how to make airport and other classes pr
 How to use it
 -------------
 
-Easiest way is to `require './lib/init' inside of `irb` which will provide you with initial components to play with:
+Easiest way is to `require './lib/init'` inside of `irb` which will provide you with initial components to play with:
 
-```ruby
+```
 @plane1
 @plane2
 @plane3
