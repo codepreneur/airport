@@ -9,3 +9,42 @@ For example, a controller sends a plane of your choice from airport of your choi
 
 One thing I still need to figure out is how to make airport and other classes private so user can only use controller classes to run/play with this airport, as opposed to messing with internals :)
 
+How to use it
+-------------
+
+Easiest way is to `require './lib/init' inside of `irb` which will provide you with initial components to play with:
+
+```ruby
+@plane1
+@plane2
+@plane3
+@plane4
+@luton
+@heathrow
+@gatwick
+@sky
+@controller
+```
+
+and then
+
+```
+@controller.add_plane_to(@luton,@plane1)
+```
+
+to add freshly manufactured plane to airport of your choice.
+If you want to send planes to different airports, just use:
+
+```
+@controller.send_plane(from_airport,plane,sky,to_airport)
+```
+
+so with the components above it would look like this:
+
+```
+@controller.send_plane(@luton,@plane1,@sky,@gatwick)
+```
+
+
+
+
